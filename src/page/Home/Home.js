@@ -1,29 +1,34 @@
 import React from 'react'
-import { useState} from 'react'
+import { useState,useEffect} from 'react'
 import style from '../Home/Home.module.css'
 import { usePost } from '../../Hooks/Post'; 
+import { useGet } from '../../Hooks/Get'; 
 
 const Home = () => {
 
-    const [perguntas,setPerguntas] = useState('')
-    const [respostas,setRespostas] = useState('')
-  
-    
+    const [pergunta,setPerguntas] = useState('')
+    const [resposta,setRespostas] = useState('')
+
     const {addQuestions} = usePost()
+   
+    const { GetQuestions } = useGet();
 
-
+    useEffect(() => {
+      GetQuestions();
+    }, []);
+  
     const handleSubmit = (e) =>{
 
         e.preventDefault()
 
 
         const botData = {
-            perguntas,
-            respostas,
+            pergunta,
+            resposta,
     
         }
 
-      addQuestions(botData)
+addQuestions(botData)
        
     }
 
@@ -32,11 +37,11 @@ const Home = () => {
         <form onSubmit={handleSubmit}>
             <label>
                 PERGUNTAS
-                <input  value={perguntas} type="text"   onChange={(e)=>{setPerguntas(e.target.value)}}/>
+                <input  value={pergunta} type="text"   onChange={(e)=>{setPerguntas(e.target.value)}}/>
             </label>
             <label>
                 RESPOSTAS
-                <input type="text" value={respostas} onChange={(e)=>{setRespostas(e.target.value)}} />
+                <input type="text" value={resposta} onChange={(e)=>{setRespostas(e.target.value)}} />
             </label>
           
             <input type="submit"/>

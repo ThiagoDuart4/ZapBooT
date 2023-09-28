@@ -2,12 +2,15 @@ import axios from 'axios'
 
 export function usePost(dataBot) {
 
+
+    const url = "https://zapbot-backend.vercel.app/"
    
     const addQuestions = async (dataBot) =>{
 
-        console.log(dataBot)
+       
 try {
-     await axios.post("https://zapbot-backend.vercel.app/", dataBot ) 
+     await axios.post(url, dataBot ) 
+     console.log('cadastrado com sucesso')
   
 } catch (err) {
     console.log(err)
