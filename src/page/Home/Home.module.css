@@ -1,7 +1,7 @@
 .home{
-    width: 100%;
+    width:100%;
     height: 100vh;
-
+    background-color: transparent;
 }
 
 .home , .home  form{
@@ -16,7 +16,7 @@
     height: 60vh;
     background-color: darkgray;
     border-radius: 20px;
-    box-shadow: ;
+
 }
 
 .home  form label {

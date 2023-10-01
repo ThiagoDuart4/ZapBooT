@@ -1,0 +1,29 @@
+.sideBar{
+ display: flex;
+ height: 100vh;
+  
+}
+
+.teste{
+    transition: 0.3s;
+    width: 220px;
+
+}
+
+.close , .open{
+    transition: 0.4s ease-in-out;
+    border-radius: 0px 20px  20px 0px ;
+ 
+    border-right: 1px solid rgba(0, 0, 0, 0.10);
+background: #FFF;
+}
+
+.close{
+    width: 50px;
+    padding: 10px; 
+}
+
+.open{
+    width: 250px; 
+    padding: 24px;
+}

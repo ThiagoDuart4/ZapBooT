@@ -1,8 +1,9 @@
 import React from 'react'
 import { useState,useEffect} from 'react'
 import style from '../Home/Home.module.css'
-import { usePost } from '../../Hooks/Post'; 
-import { useGet } from '../../Hooks/Get'; 
+import { usePost } from '../../Hooks/usePost'; 
+import { useGet } from '../../Hooks/useGet'; 
+import  HoverBar from "../../components/HoverBar/hoverbar"
 
 const Home = () => {
 
@@ -34,6 +35,8 @@ addQuestions(botData)
 
   return (
     <div className={style.home}>
+
+        <HoverBar/>
         <form onSubmit={handleSubmit}>
             <label>
                 PERGUNTAS
