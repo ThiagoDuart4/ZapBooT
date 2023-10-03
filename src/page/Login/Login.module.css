@@ -1,22 +1,112 @@
-.LoginMain{
+input {
+    display: flex;
+    justify-content: center;
+    color: gray;
+}
+
+input[type="submit"][name="logar"] {
+    background-color: #34A853;
+    color: #fff;
+    height: 40px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"][name="logar"]:active {
+    background-color: #32CD32;
+}
+
+.LoginMain {
     width: 100%;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
-
-.LoginMain .LoginForm{
+.LoginMain .LoginForm {
     width: 440px;
     height: 440px;
-padding: 48px 72px;
-border-radius: 8px;
-background: #FFF;
-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: column;
+    padding: 48px 72px;
+    border-radius: 8px;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.LoginForm label {
+    display: flex;
+    flex-direction: column;
+    margin: 1vw;
+}
+
+.LoginForm label div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.LoginForm input {
+    border-radius: 5px;
+    color: gray;
+    height: 30px;
+    width: 20vw;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.LoginForm input:hover {
+    border-color: green;
+}
+
+.LoginForm h3 {
+    font-size: 33px;
+    font-weight: bold;
+}
+
+div p {
+    display: flex;
+    justify-content: end;
+}
+
+@media (max-width: 768px) {
+    .LoginMain .LoginForm {
+        width: 80%;
+        padding: 24px;
+       
+        
+    }
+
+    .LoginForm input {
+        width: 50vw;
+      
+    }
+
+
+    div{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .LoginMain .LoginForm {
+        width: 100%;
+        padding: 16px;
+       
+    }
+
+    .LoginForm input {
+        width: 80vw;
+       
+    }
+
+    div{
+        display: flex;
+        flex-direction: column;
+    }
 }
