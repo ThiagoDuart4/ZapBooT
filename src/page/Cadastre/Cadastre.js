@@ -4,6 +4,10 @@ import { Link,useNavigate} from "react-router-dom";
 import { useState,useEffect } from 'react';
 
 import { useAuthentication } from '../../Hooks/useAuthentication'
+import {usePost} from '../../Hooks/usePost'
+
+import { useAuthValue } from '../../Context/authContext';
+
 
 const Cadastre = () => {
 
@@ -15,9 +19,11 @@ const Cadastre = () => {
     const [ConfirmPassword,setConfirmPassword] = useState('')
    const [error,setError] = useState()
 
-   const {createUser, error: authError , loading, msg,redirect,GoogleLogar } = useAuthentication()
-   
+   const {createUser, error: authError , loading, msg,redirect,GoogleLogar} = useAuthentication()
 
+   const {user:contextUser} = useAuthValue()
+
+   const {addUser} = usePost()
 
 const handleSubmit = async (e)=>{
     e.preventDefault()
@@ -35,7 +41,24 @@ const handleSubmit = async (e)=>{
         return
        }
        const res = await createUser(user);
+
+
 }
+
+
+useEffect( ()=>{
+  if (contextUser && contextUser.emailVerified === true)  {
+      const email = contextUser.email
+      const  emailVerified = contextUser.emailVerified
+
+      const user = {
+        email,
+        emailVerified
+      }
+
+      const res = addUser(user);
+      }
+},contextUser)
 
 // GOOGLE LOGAR
 
@@ -51,8 +74,17 @@ useEffect(()=>{
           
       
     }
+
+    else if (redirect === 2){
+      setTimeout(() => {
+        navigate("/")
+      }, 3000);
+      
+    }
    },[redirect])
   
+
+
 
 useEffect(()=>{
     if(authError){

@@ -14,7 +14,7 @@ import {
 
 import { useState, useEffect} from "react"
 
-
+import { useAuthValue } from '../Context/authContext';
 
 
 export const useAuthentication = () => {
@@ -33,7 +33,7 @@ export const useAuthentication = () => {
 
     const [redirect, setRedirect] = useState(0)
 
-   
+
     // CLEAN UP PARA NAO TER ESCAPE DE MEMORIA DE INFORMAÇOES
     function checkIfisCancelled() {
         if (cancelled) {
@@ -58,11 +58,12 @@ export const useAuthentication = () => {
                 data.password
             )
 
-
             await sendEmailVerification(user).then(()=>{
                 setMsg('Foi enviado um email de verificação para este email')
                setRedirect(1)
-            })
+            }
+
+            )
             .catch((error)=>{
                 console.log('Erro ao enviar', error)
             })
@@ -107,7 +108,7 @@ export const useAuthentication = () => {
     const GoogleLogar = async () =>{
         const provider = new GoogleAuthProvider();   
             const result = await signInWithPopup(auth, provider);
-            setRedirect(1)
+            setRedirect(2)
             return result;
           
       
@@ -165,6 +166,10 @@ export const useAuthentication = () => {
         signOut(auth);
       };
     
+
+    //   INSERINDO USUARIO DENTRO DO BANCO DE DADOS
+
+   
     
 
     return {
@@ -176,7 +181,7 @@ export const useAuthentication = () => {
         loading,
          msg,
          redirect,
-         auth
+         auth,
     }
 }
     

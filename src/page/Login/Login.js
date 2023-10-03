@@ -36,12 +36,13 @@ password
 
     }
     else  if  (contextUser && contextUser.emailVerified  === false) {
-      console.log('Confirme seu email antes por favor')
-    }
+   setError(' Confirme seu email por favor! ')
+    } 
   
    },[redirect])
 
 
+console.log(contextUser)
   useEffect(()=>{
     if(authError){
       setError(authError)
