@@ -12,6 +12,7 @@ input[type="submit"][name="logar"] {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+
 }
 
 input[type="submit"][name="logar"]:active {
@@ -24,6 +25,7 @@ input[type="submit"][name="logar"]:active {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: bold;
 }
 
 .LoginMain .LoginForm {
@@ -55,12 +57,14 @@ input[type="submit"][name="logar"]:active {
     color: gray;
     height: 30px;
     width: 20vw;
+
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
 .LoginForm input:hover {
     border-color: green;
+
 }
 
 .LoginForm h3 {
@@ -77,17 +81,17 @@ div p {
     .LoginMain .LoginForm {
         width: 80%;
         padding: 24px;
-       
-        
+
+
     }
 
     .LoginForm input {
         width: 50vw;
-      
+
     }
 
 
-    div{
+    div {
         display: flex;
         flex-direction: column;
     }
@@ -97,15 +101,15 @@ div p {
     .LoginMain .LoginForm {
         width: 100%;
         padding: 16px;
-       
+
     }
 
     .LoginForm input {
         width: 80vw;
-       
+
     }
 
-    div{
+    div {
         display: flex;
         flex-direction: column;
     }
